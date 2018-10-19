@@ -1,8 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="wrapper">
   <section>
-      <app-categories></app-categories>
-      <app-products></app-products>
+      <app-categories (selectedCategory)="onSelectedCategory($event)"></app-categories>
+      <app-products [selectedCategory]="selectedCategory" *ngIf="selectedCategory"></app-products>
   </section>
   <app-cart></app-cart>
 </div>
