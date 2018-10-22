@@ -1,4 +1,25 @@
-<h1>Products</h1>
-<div *ngFor="let product of products" (click)="onAddProduct(product.id, product.name, product.price, 1)">
-  {{ product.name }} - {{ product.price }}
+<div class="products">
+  <div class="products__header">
+    <div class="products__title">
+
+    </div>
+    <div class="products__sort">
+      Ordenar por:
+      <a class="products__sort-option" (click)="sortProducts('price')">Precio</a>
+      <a class="products__sort-option" (click)="sortProducts('available')">Disponibilidad</a>
+      <a class="products__sort-option" (click)="sortProducts('quantity')">Stock</a>
+    </div>
+  </div>
+  <div class="products__grid">
+    <div class="products__griditem" *ngFor="let product of products">
+      <h3 class="products__product-title">{{ product.name }}</h3>
+      <p class="products__product-price">${{ product.price }}</p>
+      <!--<p *ngIf="product.available" class="products__availability products__availability--true">Disponible</p>-->
+      <p *ngIf="!product.available" class="products__availability products__availability--false">No Disponible</p>
+      <div *ngIf="product.available">
+        <a class="products__add-button" (click)="onAddProduct(product.id, product.name, product.price, 1)">Agregar al carro</a>
+      </div>
+      <p>Stock: {{ product.quantity }}</p>
+    </div>
+  </div>
 </div>

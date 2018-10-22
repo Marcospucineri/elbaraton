@@ -575,6 +575,7 @@ export class ProductService{
         (item) => {
           if(typeof item.price == 'string'){
             item.price = item.price.replace('$','').replace(',','');
+            item.price = parseInt(item.price);
           }
           return item;
         }

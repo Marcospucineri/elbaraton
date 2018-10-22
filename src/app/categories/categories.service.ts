@@ -1,88 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class CategoriesService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  categories = { "categories": [
-	{
-		"id": 1,
-		"name": "Bebidas",
-		"sublevels": [
-			{
-				"id": 1,
-				"name": "Gaseosas",
-				"sublevels": [
-					{
-						"id": 2,
-						"name": "Con azúcar"
-					},
-					{
-						"id": 3,
-						"name": "Sin azúcar"
-					}
-				]
-			}
-		]
-	},
-	{
-		"id": 2,
-		"name": "Desayunos",
-		"sublevels": [
-			{
-				"id": 4,
-				"name": "Fake 1",
-				"sublevels": [
-					{
-						"id": 5,
-						"name": "Fake 2"
-					},
-					{
-						"id": 6,
-						"name": "Fake 3",
-						"sublevels": [
-							{
-								"id": 7,
-								"name": "Fake 4"
-							}
-						]
-					}
-				]
-			}
-		]
-	},
-	{
-		"id": 8,
-		"name": "Almuerzos",
-		"sublevels": [
-			{
-				"id": 9,
-				"name": "Fake 5"
-			},
-			{
-				"id": 10,
-				"name": "Fake 6"
-			}
-		]
-	},
-	{
-		"id": 11,
-		"name": "Vinos",
-		"sublevels": [
-			{
-				"id": 12,
-				"name": "Fake 8"
-			},
-			{
-				"id": 13,
-				"name": "Fake 9"
-			}
-		]
-	}
-]
-}
+  configUrl = 'assets/categories.json';
+
+  categories = { "categories": [ { "id": 1, "name": "Bebidas", "sublevels": [ { "id": 1, "name": "Gaseosas", "sublevels": [ { "id": 2, "name": "Con azúcar" }, { "id": 3, "name": "Sin azúcar" } ] } ] }, { "id": 2, "name": "Desayunos", "sublevels": [ { "id": 4, "name": "Fake 1", "sublevels": [ { "id": 5, "name": "Fake 2" }, { "id": 6, "name": "Fake 3", "sublevels": [ { "id": 7, "name": "Fake 4" } ] } ] } ] }, { "id": 8, "name": "Almuerzos", "sublevels": [ { "id": 9, "name": "Fake 5" }, { "id": 10, "name": "Fake 6" } ] }, { "id": 11, "name": "Vinos", "sublevels": [ { "id": 12, "name": "Fake 8" }, { "id": 13, "name": "Fake 9" } ] } ] }
 
   getCategories() {
+    //return this.http.get(this.configUrl);
     return this.categories.categories;
   }
 }

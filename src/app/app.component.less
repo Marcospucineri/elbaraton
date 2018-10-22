@@ -1,0 +1,42 @@
+.page{
+  &__navbar{
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    color:#fff;
+    min-height: 52px;
+  }
+  &__wrapper{
+    margin-top: 50px;
+    display: flex;
+  }
+
+  &__categories{
+    width: 30%;
+    background-color: #ccc;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+
+  &__products{
+    width: 70%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 768px) {
+  .page{
+    &__wrapper{
+      flex-direction: column;
+    }
+    &__categories{
+      width: 100%;
+    }
+    &__products{
+      width: 100%;
+    }
+  }
+
+}

@@ -29,4 +29,19 @@ export class ProductsComponent implements OnInit {
     this.cartSrv.addItem(product_id, name, price, qty);
   }
 
+  sortProducts(criteria: string){
+    debugger;
+    this.products.sort((a, b) => {
+      console.log(a[criteria]);
+      if (a[criteria] < b[criteria]) {
+        return 1;
+      }
+      if (a[criteria] > b[criteria]) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    });
+  }
+
 }

@@ -1,9 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="wrapper">
-  <section>
+<div class="page__navbar">
+  <app-cart></app-cart>
+</div>
+<div class="page__wrapper">
+  <section class="page__categories">
       <app-categories (selectedCategory)="onSelectedCategory($event)"></app-categories>
+  </section>
+  <section class="page__products">
       <app-products [selectedCategory]="selectedCategory" *ngIf="selectedCategory"></app-products>
   </section>
-  <app-cart></app-cart>
 </div>
 <router-outlet></router-outlet>

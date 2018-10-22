@@ -1,0 +1,101 @@
+.cart{
+  &__colapsed{
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  &__icon{
+    height: 30px;
+    margin-right: 20px;
+  }
+
+  &__subtotal{
+    font-size: 16.4px;
+    font-weight: 700;
+  }
+
+  &__toggle-button-container{
+    flex-grow: 1;
+    text-align: right;
+  }
+
+  &__toggle-button{
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px #fff solid;
+    padding: 8px 15px;
+    transition: 0.5s all;
+
+    &:hover{
+      background-color: #fff;
+      color:#000;
+    }
+  }
+
+  &__expanded{
+    padding: 0 20px;
+  }
+
+  &__remove-item{
+    display: inline-block;
+    font-size: 12.5px;
+    cursor: pointer;
+    color: #f55;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    &:hover{
+      color:#fff;
+    }
+  }
+
+  &__edit-item{
+    display: inline-block;
+    font-size: 12.5px;
+    cursor: pointer;
+    color: #55f;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    &:hover{
+      color:#fff;
+    }
+  }
+
+  &__input{
+    width: 50px;
+    height: 25px;
+    margin-right: 10px;
+  }
+
+  &__buy-button{
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #55f;
+    padding: 8px 15px;
+    transition: 0.5s all;
+    margin-bottom: 10px;
+
+    &:hover{
+      background-color: #fff;
+      color:#55f;
+    }
+  }
+}
+
+@media (max-width:768px){
+  .cart{
+    &__subtotal{
+      font-size: 13px;
+    }
+  }
+}

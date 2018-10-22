@@ -1,4 +1,4 @@
-<ul *ngFor="let item of items">
-  <li (click)="onSelectItem(item)">{{item.name}}</li>
+<ul class="treeview__list" *ngFor="let item of items">
+  <li class="treeview__listitem" (click)="onSelectItem(item)">{{item.name}}</li>
   <tree-view *ngIf="item.sublevels" [data]="item.sublevels" (selectItem)="onSelectItem($event)"></tree-view>
 </ul>

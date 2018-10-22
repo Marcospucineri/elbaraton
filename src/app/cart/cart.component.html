@@ -1,9 +1,38 @@
-<h1>Cart</h1>
-<div *ngIf="cart">
-  <ul>
-    <li *ngFor="let cartentry of cart.entries">
-      {{ cartentry.name }} // {{ cartentry.qty }} - <a (click)="onRemoveItem(cartentry.product_id)">Eliminar</a>
-    </li>
-  </ul>
-  <h4>Total: {{cart.total}}</h4>
+<div class="cart">
+  <div class="cart__colapsed">
+    <div>
+      <img class="cart__icon" src="assets/shopping-cart.png">
+    </div>
+    <div *ngIf="cart.entries.length > 0; else noCart" class="cart__subtotal" >
+      <p>Productos: {{cart.entries.length}} / <br class="visible-xs">Total: ${{cart.total.toFixed(2)}}</p>
+    </div>
+    <ng-template #noCart>
+      <p>No tienes productos seleccionados en el carro</p>
+    </ng-template>
+    <div class="cart__toggle-button-container" *ngIf="cart.entries.length > 0">
+      <a class="cart__toggle-button" (click)="toggleCart()">{{expandedCart ? 'Ocultar' : 'Ver'}} carrito</a>
+    </div>
+  </div>
+  <div *ngIf="cart.entries.length > 0 && expandedCart" class="cart__expanded">
+    <div *ngFor="let cartentry of cart.entries">
+      <span *ngIf="idToEdit && idToEdit == cartentry.product_id; else noEditEntry">
+        <input class="cart__input" type="text" [(ngModel)]="qtyToEdit"> <a class="cart__edit-item" (click)="onEditedQty(cartentry.product_id)">Guardar</a>
+      </span>
+      <ng-template #noEditEntry>
+        <span>
+          {{ cartentry.qty }}
+        </span>
+      </ng-template>
+      x {{ cartentry.name }}
+      <span *ngIf="!idToEdit">
+        <a class="cart__edit-item" (click)="onEditQty(cartentry.product_id,cartentry.qty)">Editar</a> -
+        <a class="cart__remove-item" (click)="onRemoveItem(cartentry.product_id)">Eliminar</a>
+      </span>
+
+    </div>
+    <h4>Total: ${{cart.total}}</h4>
+    <div class="cart__buy-button-container">
+      <a class="cart__buy-button" (click)="processCart()">Realizar compra</a>
+    </div>
+  </div>
 </div>
