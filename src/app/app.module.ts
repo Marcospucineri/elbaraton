@@ -10,6 +10,7 @@ import { TreeViewComponent } from './treeview/treeview.component';
 
 import { ProductService } from './products/products.service';
 import { CategoriesService } from './categories/categories.service';
+import { CartService } from './cart/cart.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { CategoriesService } from './categories/categories.service';
     BrowserModule,
     AppRoutingModule
   ],
-    providers: [ProductService, CategoriesService],
+    providers: [ProductService,
+                CategoriesService,
+                CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

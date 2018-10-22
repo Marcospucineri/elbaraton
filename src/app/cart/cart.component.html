@@ -1,1 +1,9 @@
 <h1>Cart</h1>
+<div *ngIf="cart">
+  <ul>
+    <li *ngFor="let cartentry of cart.entries">
+      {{ cartentry.name }} // {{ cartentry.qty }} - <a (click)="onRemoveItem(cartentry.product_id)">Eliminar</a>
+    </li>
+  </ul>
+  <h4>Total: {{cart.total}}</h4>
+</div>

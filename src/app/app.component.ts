@@ -10,7 +10,6 @@ export class AppComponent {
   selectedCategory: number;
 
   onSelectedCategory(category:Category){
-    console.log(category);
     this.selectedCategory = category.id;
   }
 }
