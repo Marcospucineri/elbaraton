@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { Category } from '../categories/category.model';
+
 import { ProductService } from './products.service';
+import { Product } from './product.model';
 
 @Component({
   selector: 'app-products',
@@ -9,11 +11,15 @@ import { ProductService } from './products.service';
 })
 export class ProductsComponent implements OnInit {
   @Input() selectedCategory: number;
+  products: Product[] = [];
 
   constructor(public productSrv: ProductService) { }
 
   ngOnInit() {
-    console.log(this.selectedCategory);
+  }
+
+  ngOnChanges(changes){
+    this.products = this.productSrv.getProductsBySublevelId(changes.selectedCategory.currentValue);
   }
 
 }

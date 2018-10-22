@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Category } from './category.model';
 import { CategoriesService } from './categories.service';
+import { TreeViewComponent } from '../treeview/treeview.component';
 
 @Component({
   selector: 'app-categories',
@@ -18,9 +19,8 @@ export class CategoriesComponent implements OnInit {
     this.categories = this.categoriesSrv.getCategories();
   }
 
-  onSelectCategory(category: Category) {
-    console.log(category)
-    this.selectedCategory.emit(category);//Implement category selection
+  onSelectedItem(category:Category){
+    this.selectedCategory.emit(category)
   }
 
 }
