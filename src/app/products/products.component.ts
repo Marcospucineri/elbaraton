@@ -22,7 +22,9 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnChanges(changes){
-    this.products = this.productSrv.getProductsBySublevelId(changes.selectedCategory.currentValue);
+    if(changes.selectedCategory){
+        this.products = this.productSrv.getProductsBySublevelId(changes.selectedCategory.currentValue);
+    }
   }
 
   onAddProduct(product_id: string, name: string, price: number, qty: number){
@@ -30,9 +32,7 @@ export class ProductsComponent implements OnInit {
   }
 
   sortProducts(criteria: string){
-    debugger;
     this.products.sort((a, b) => {
-      console.log(a[criteria]);
       if (a[criteria] < b[criteria]) {
         return 1;
       }

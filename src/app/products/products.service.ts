@@ -572,11 +572,18 @@ export class ProductService{
 
     getProducts(){
       return this.products.products.map(
-        (item) => {
-          if(typeof item.price == 'string'){
-            item.price = item.price.replace('$','').replace(',','');
-            item.price = parseInt(item.price);
+        (element) => {
+          if(typeof element.price == 'string'){
+            element.price = element.price.replace('$','').replace(',','');
           }
+          let item = new Product(
+            element.quantity,
+            Number(element.price),
+            element.available,
+            element.sublevel_id,
+            element.name,
+            element.id
+          )
           return item;
         }
       );
